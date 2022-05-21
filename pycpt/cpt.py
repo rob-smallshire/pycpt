@@ -6,8 +6,8 @@ http://gmt.soest.hawaii.edu/gmt/html/GMT_Docs.html#x1-720004.15
 
 import math
 
-import re
 from pycpt.colors import RGBColor
+from pycpt.conversion import convert_color
 
 __author__ = 'rjs'
 
@@ -18,6 +18,7 @@ ANNOTATE_NEITHER = 0
 ANNOTATE_LOWER = 1
 ANNOTATE_UPPER = 2
 ANNOTATE_BOTH  = 3
+
 
 def lerp(x1, y1, x2, y2, x):
     '''Linear interpolation'''
@@ -53,7 +54,7 @@ class Interval(object):
                           self.lower_boundary.value, self.upper_boundary.value)
             raise ValueError(message)
 
-        assert type(lower_boundary) == type(upper_boundary)
+        assert type(self.lower_boundary) == type(self.upper_boundary)
 
         T = type(self.lower_boundary)
         result = T(*(lerp(self.lower_boundary.value, lower_channel,

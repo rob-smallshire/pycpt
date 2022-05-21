@@ -1,5 +1,3 @@
-__author__ = 'rjs'
-
 from collections import namedtuple
 
 CommentNode = namedtuple('CommentNode', ['comment'])

@@ -1,7 +1,9 @@
 import logging
 import re
+
 from pycpt.build_visitor import BuildVisitor
-import x11colors
+
+from pycpt import x11colors
 
 logger = logging.getLogger('pycpt.cpt_reader')
 
@@ -76,14 +78,16 @@ def initialise_category_regexes(category_formats, substitutions):
 
 INTERVAL_REGEXES = initialise_interval_regexes(INTERVAL_FORMATS, SUBSTITUTIONS)
 
-CATEGORY_FORMATS = set([type1 for type1, type2 in INTERVAL_FORMATS])
+CATEGORY_FORMATS = set(type1 for type1, type2 in INTERVAL_FORMATS)
 
 CATEGORY_REGEXES = initialise_category_regexes(CATEGORY_FORMATS, SUBSTITUTIONS)
 
-PERMITTED_COLOR_MODELS = set(['rgb', 'hsv', 'cmyk'])
+PERMITTED_COLOR_MODELS = {'rgb', 'hsv', 'cmyk'}
+
 
 class CptReaderError(Exception):
     pass
+
 
 class CptReader(object):
 
@@ -221,7 +225,7 @@ class CptReader(object):
 
 
 if __name__ == '__main__':
-    reader = CptReader('/home/rjs/dev/pycpt/cpts/test.cpt')
+    reader = CptReader('/Users/rjs/dev/pycpt/cpts/test.cpt')
     reader.read()
     cpt = reader.build()
     pass

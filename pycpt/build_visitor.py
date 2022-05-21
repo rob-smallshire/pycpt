@@ -4,6 +4,7 @@ from pycpt.cpt import (Boundary, Interval, ANNOTATE_NEITHER, ANNOTATE_BOTH,
 
 log = logging.getLogger('pycpt.build_visitor')
 
+
 class BuildVisitor(object):
     def __init__(self):
         self._cpt = ColorPaletteTable()
@@ -34,7 +35,6 @@ class BuildVisitor(object):
     def visit_CommentNode(self, node):
         log.debug('visit_CommentNode')
         self._description.append(node.comment)
-
 
     def visit_IntervalSpecNode(self, node):
         log.debug('visit_IntervalSpecNode')

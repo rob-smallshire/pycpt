@@ -1,8 +1,6 @@
 import os
 import logging
 
-from colors import RGBColor
-
 log = logging.getLogger("cpt.x11colors")
 
 DICTIONARY_FILENAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rgb.txt')

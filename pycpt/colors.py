@@ -1,5 +1,3 @@
-__author__ = 'rjs'
-
 from collections import namedtuple
 
 HSVColor = namedtuple('HSVColor', ['hue', 'saturation', 'value'])
